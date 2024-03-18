@@ -1,0 +1,59 @@
+<div class="row justify-content-center">
+    <div class="col-xl-4 col-lg-6 col-md-8 col-sm-10 col-12">
+        <mat-card>
+            <mat-card-content>
+                <form [formGroup]="searchForm" (ngSubmit)="onHandleSubmit()">
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <h2>{{ (user$ | async)?.name }}</h2>
+                            <h3><a [href]="(user$ | async)?.url" target="_blank" class="link-underline-light">{{ (user$
+                                    | async)?.url }}</a></h3>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <app-autocomplete [formGroup]="searchForm" controlName="city"
+                                fieldName="City" placeholder="Please enter a city" [required]="true"
+                                [isSearch]="true" (eventOnKeyUp)="onKeyUp()" (eventOnOptionSelected)="onOptionSelected($event)" [options$]="options$"></app-autocomplete>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <app-input
+                                [formGroup]="searchForm"
+                                controlName="country"
+                                fieldName="Country"
+                                placeholder="Country"
+                            ></app-input>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <app-input
+                                [formGroup]="searchForm"
+                                controlName="lon"
+                                fieldName="Longitude"
+                                placeholder="Longitude"
+                            ></app-input>
+                        </div>
+                        <div class="col-md-6">
+                            <app-input
+                                [formGroup]="searchForm"
+                                controlName="lat"
+                                fieldName="Latitude"
+                                placeholder="Latitude"
+                            ></app-input>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="d-flex justify-content-center">
+                            <button type="submit" mat-raised-button [disabled]="!searchForm.valid"
+                                color="primary">Display Weather</button>
+                        </div>
+                    </div>
+                </form>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+<mat-grid-list cols="1" rows="1" rowHeight="100%" class="bg-default">
+    <mat-grid-tile>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-4 col-lg-6 col-md-8 col-sm-10 col-12">
+                    <mat-card>
+                        <mat-card-header class="justify-content-center">
+                            <mat-icon mat-card-avatar>cloud</mat-icon>
+                            <mat-card-title>{{ appName }}</mat-card-title>
+                            <mat-card-subtitle>Please log in to your account</mat-card-subtitle>
+                        </mat-card-header>
+                        <mat-card-content>
+                            <div class="row mt-16">
+                                <div class="col-md-12">
+                                    <p>Welcome to the <strong>{{ appName }}</strong> weather forecast web application. Please login with your
+                                        <strong>Github</strong> user to use the application and view the weather in your
+                                        city</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="d-flex justify-content-center">
+                                    <button mat-raised-button color="primary"
+                                        (click)="login()">Login</button>
+                                </div>
+                            </div>
+                        </mat-card-content>
+                    </mat-card>
+                </div>
+            </div>
+        </div>
+    </mat-grid-tile>
+</mat-grid-list>

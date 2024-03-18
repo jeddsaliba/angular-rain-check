@@ -1,0 +1,35 @@
+.mat-expansion-panel {
+    box-shadow: none !important;
+}
+.bg-default {
+    background-color: color(container, bg) !important;
+}
+.mat-expansion-panel-body {
+    padding: 0 !important;
+}
+.mat-paginator-container {
+  min-height: auto !important;
+}
+.mat-card-header-text {
+    margin: 0 !important;
+}
+.mat-raised-button {
+    height: -webkit-fill-available;
+}
+.full-screen-loader {
+    background: gray;
+    opacity: .75;
+    position: absolute;
+    width: -webkit-fill-available;
+    height: -webkit-fill-available;
+    z-index: 2;
+    mat-spinner {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -50px;
+        margin-left: -50px;
+        width: 100px;
+        height: 100px;
+    }
+}

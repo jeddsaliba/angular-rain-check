@@ -1,0 +1,16 @@
+<mat-toolbar color="primary">
+    <mat-icon class="mr-16">cloud</mat-icon>
+    <span>{{ appName }}</span>
+    <span class="spacer"></span>
+    <button mat-button [matMenuTriggerFor]="menu">
+      <img [src]="(user$ | async)?.picture" [alt]="(user$ | async)?.name" class="rounded-circle h-30 w-30 mr-16">
+      <span>{{ (user$ | async)?.name }}</span>
+      <mat-icon iconPositionEnd>arrow_drop_down</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="onLogout()">
+        <mat-icon>logout</mat-icon>
+        <span>Logout</span>
+      </button>
+    </mat-menu>
+  </mat-toolbar>

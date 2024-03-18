@@ -19,6 +19,18 @@
     "target": "ES2022",
     "module": "ES2022",
     "useDefineForClassFields": false,
+    "paths": {
+      "@shared/*": ["src/app/shared/*"],
+      "@services/*": ["src/app/shared/services/*"],
+      "@redux/*": ["src/app/shared/redux/*"],
+      "@theme/*": ["src/app/theme/*"],
+      "@environments/*": ["src/environments/*"],
+      "@enum/*": ["src/app/enum/*"],
+      "@components/*": ["src/app/components/*"],
+      "urls": [
+        "dist/urls"
+      ]
+    },
     "lib": [
       "ES2022",
       "dom"

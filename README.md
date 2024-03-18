@@ -1,28 +1,78 @@
-# AngularRainCheck
+# Weather Forecast
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.12.
 
-## Development server
+The purpose of this project is to showcase an Angular Project with a weather forecast capability.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Table of Contents
+[Dependencies](#dependencies)<br/>
+[Plugin(s) Used](#plugins-used)<br/>
+[Installation](#installation)<br/>
+[Development Server](#development-server)<br/>
+[Support](#support)
 
-## Code scaffolding
+<a name="installation"></a>
+## Dependencies
+- [NodeJS](https://nodejs.org)
+- [Angular CLI](https://angular.io)
+- [Auth0](https://auth0.com)
+  - For Auth0, you may modify the following in your `environment.ts` and `environment.prod.ts`:
+    ```bash
+    auth: {
+      domain: 'AUTH0_DOMAIN',
+      clientId: 'AUTH0_CLIENT_ID'
+    },
+    ```
+- [Geoapify](https://www.geoapify.com)
+  - For Geoapify, you may modify the following in your `environment.ts` and `environment.prod.ts`:
+    ```bash
+    geoapify: {
+      url: 'https://api.geoapify.com/v1',
+      key: 'GEOAPIFY_KEY'
+    }
+    ```
+- [OpenWeather](https://openweathermap.org)
+  - For OpenWeather, you may modify the following in your `environment.ts` and `environment.prod.ts`:
+    ```bash
+    weather: {
+      url: 'https://api.openweathermap.org',
+      key: 'OPEN_WEATHER_KEY',
+      units: `imperial`
+    }
+    ```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+<a name="plugins-used"></a>
+## Plugin(s) Used
+- [Angular Material](https://material.angular.io)
+- [NGRX](https://ngrx.io)
+- [Bootstrap](https://getbootstrap.com)
+- [Auth0-Angular](https://www.npmjs.com/package/@auth0/auth0-angular)
+- [Geoapify Autocomplete](https://www.npmjs.com/package/@geoapify/geocoder-autocomplete)
+- [title-case](https://www.npmjs.com/package/title-case)
+- [xng-breadcrumb](https://www.npmjs.com/package/xng-breadcrumb)
 
-## Build
+<a name="installation"></a>
+## Installation
+Install the `node_modules` using `npm`:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+```bash
+npm install
+```
 
-## Running unit tests
+<a name="development-server"></a>
+## Development Server
+Run this command:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```bash
+ng serve --live-reload false
+```
 
-## Running end-to-end tests
+After successfully running the development server, navigate to:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+```bash
+http://localhost:4200/
+```
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
-# angular-rain-check
+<a name="support"></a>
+## Support
+For support, email jeddsaliba@gmail.com.
