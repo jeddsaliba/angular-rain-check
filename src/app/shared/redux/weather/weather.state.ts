@@ -1,4 +1,4 @@
-import { ForecastModel, GeolocationModel, Weather, WeatherModel } from './weather.model';
+import { ForecastModel, Weather } from './weather.model';
 
 export const WeatherForecastTableHeads: any = [
     {
@@ -44,22 +44,6 @@ export const WeatherForecastTableHeads: any = [
         mobileView: false
     },
 ];
-const WeatherInitialState: WeatherModel = {
-    name: '',
-    date: new Date(),
-    temperature: 0,
-    description: '',
-    main: '',
-    pressure: 0,
-    humidity: 0
-};
-
-const GeolotationInitialState: GeolocationModel = {
-    lat: 0,
-    lon: 0,
-    name: '',
-    state: ''
-}
 
 const ForecastInitialState: ForecastModel = {
     name: '',
@@ -71,7 +55,5 @@ const ForecastInitialState: ForecastModel = {
     humidity: 0
 }
 export const WeatherState: Weather = {
-    weather: WeatherInitialState,
-    geolocation: GeolotationInitialState,
     forecast: [ForecastInitialState]
 };

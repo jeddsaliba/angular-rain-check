@@ -2,12 +2,14 @@ import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { map } from 'rxjs';
 import { SharedType } from './shared.type';
-import { setSelectOptionsSuccess, showLoaderSuccess } from './shared.action';
+import { setSelectOptionsSuccess, showLoaderSuccess, showSnackbarSuccess } from './shared.action';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Injectable()
 export class SharedEffect {
   constructor(
-    private actions$: Actions
+    private actions$: Actions,
+    private _snackBar: MatSnackBar
   ) {}
   _setSelectOptions = createEffect(() => {
     return this.actions$.pipe(
@@ -22,6 +24,15 @@ export class SharedEffect {
       ofType(SharedType.SHOW_LOADER),
       map(({payload}) => {
         return showLoaderSuccess(payload);
+      })
+    );
+  });
+  _showPrompt = createEffect(() => {
+    return this.actions$.pipe(
+      ofType(SharedType.SHOW_SNACKBAR),
+      map(({ payload }) => {
+        this._snackBar.open(payload, 'OK', { duration: 3000 });
+        return showSnackbarSuccess(payload);
       })
     );
   });

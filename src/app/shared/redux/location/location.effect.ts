@@ -3,11 +3,10 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { catchError, filter, map, of, switchMap, takeUntil, tap } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { environment } from '@environments/environment';
-import { showPrompt } from '../prompt/prompt.action';
 import { LocationService } from '@shared/services/location/location.service';
 import { LocationType } from './location.type';
 import { getAutocompleteSuccess, setLocationSuccess } from './location.action';
-import { setSelectOptions } from '../shared/shared.action';
+import { setSelectOptions, showSnackbar } from '../shared/shared.action';
 import { LocationModel } from './location.model';
 
 @Injectable()
@@ -45,7 +44,7 @@ export class LocationEffect {
             return getAutocompleteSuccess(results);
           }),
           takeUntil(this.actions$.pipe(ofType(LocationType.AUTOCOMPLETE_CANCEL))),
-          catchError(({ error }) => of(showPrompt(error?.message)))
+          catchError(({ error }) => of(showSnackbar(error?.message)))
         );
       })
     );

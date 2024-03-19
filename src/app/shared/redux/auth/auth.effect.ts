@@ -15,9 +15,9 @@ import {
   isAuthenticatedSuccess,
 } from './auth.action';
 import { Url } from '@enum/url';
-import { showPrompt } from '../prompt/prompt.action';
 import { selectLoggedInUser } from './auth.selector';
 import { AuthUserInitialState } from './auth.state';
+import { showSnackbar } from '../shared/shared.action';
 
 @Injectable()
 export class AuthEffect {
@@ -40,13 +40,13 @@ export class AuthEffect {
               const loggedInUser$ = this.store.select(selectLoggedInUser);
               loggedInUser$.subscribe((user: AuthUserModel) => {
                 if (user !== AuthUserInitialState) {
-                  this.store.dispatch(showPrompt(`Welcome, ${user?.name}`));
+                  this.store.dispatch(showSnackbar(`Welcome, ${user?.name}`));
                   this.router.navigate([`${Url.weather}`]);
                 }
               });
             }),
             takeUntil(this.actions$.pipe(ofType(AuthType.LOGIN_CANCEL))),
-            catchError(({ error }) => of(showPrompt(error?.message)))
+            catchError(({ error }) => of(showSnackbar(error?.message)))
           );
         })
       );
@@ -67,9 +67,9 @@ export class AuthEffect {
           });
           return this.authService.logout().pipe(
             tap(() => {
-              this.store.dispatch(showPrompt(message));
+              this.store.dispatch(showSnackbar(message));
             }),
-            catchError(({ error }) => of(showPrompt(error?.message)))
+            catchError(({ error }) => of(showSnackbar(error?.message)))
           );
         })
       );
@@ -85,7 +85,7 @@ export class AuthEffect {
             return getAccessTokenSuccess(data);
           }),
           takeUntil(this.actions$.pipe(ofType(AuthType.ACCESS_TOKEN_CANCEL))),
-          catchError(({ error }) => of(showPrompt(error?.message)))
+          catchError(({ error }) => of(showSnackbar(error?.message)))
         );
       })
     );
@@ -99,7 +99,7 @@ export class AuthEffect {
             return getLoggedInUserSuccess(data);
           }),
           takeUntil(this.actions$.pipe(ofType(AuthType.AUTH_USER_CANCEL))),
-          catchError(({ error }) => of(showPrompt(error?.message)))
+          catchError(({ error }) => of(showSnackbar(error?.message)))
         );
       })
     );
@@ -113,7 +113,7 @@ export class AuthEffect {
             return isAuthenticatedSuccess(data);
           }),
           takeUntil(this.actions$.pipe(ofType(AuthType.AUTHENTICATED_CANCEL))),
-          catchError(({ error }) => of(showPrompt(error?.message)))
+          catchError(({ error }) => of(showSnackbar(error?.message)))
         );
       })
     );

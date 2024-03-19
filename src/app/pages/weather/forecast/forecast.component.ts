@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { setDataTable } from '@shared/redux/datatable/datatable.action';
-import { getGeolocationCancel, getWeatherForecastByGeolocation } from '@shared/redux/weather/weather.action';
+import { getWeatherForecastByGeolocation } from '@shared/redux/weather/weather.action';
 import { ForecastModel, Weather } from '@shared/redux/weather/weather.model';
 import { selectWeatherForecast } from '@shared/redux/weather/weather.selector';
 import { WeatherForecastTableHeads } from '@shared/redux/weather/weather.state';
@@ -57,6 +57,5 @@ export class ForecastComponent implements OnInit, OnDestroy {
   }
   ngOnDestroy(): void {
     this.selectWeatherForecast$.unsubscribe();
-    this.store.dispatch(getGeolocationCancel());
   }
 }
