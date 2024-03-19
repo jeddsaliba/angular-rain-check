@@ -15,7 +15,7 @@ import { Observable, of } from 'rxjs';
 })
 export class ToolbarComponent implements OnInit {
   user$: Observable<AuthUserModel> = of();
-  appName: any = environment.appName;
+  appName: string = environment.appName;
   constructor(
     public dialog: MatDialog,
     private store: Store<Auth>

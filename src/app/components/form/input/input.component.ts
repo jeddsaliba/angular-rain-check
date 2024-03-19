@@ -15,7 +15,7 @@ export class InputComponent {
   @Input() hint: string | any;
   @Input() isSearch = false;
   @Output() eventOnKeyUp: EventEmitter<any> = new EventEmitter();
-  onKeyUp(e: any): void {
-    this.eventOnKeyUp.emit(e.target.value);
+  onKeyUp(): void {
+    this.eventOnKeyUp.emit();
   }
 }

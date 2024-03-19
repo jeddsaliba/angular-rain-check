@@ -20,13 +20,13 @@ export class LocationEffect {
     return this.actions$.pipe(
       ofType(LocationType.AUTOCOMPLETE),
       filter(({ payload }) => {
-        const { city } = payload;
-        return city;
+        const { location } = payload;
+        return location;
       }),
       switchMap(({ payload }) => {
-        const { city } = payload;
+        const { location } = payload;
         const params = {
-            text: city,
+            text: location,
             apiKey: environment.geoapify.key,
             format: 'json'
         };

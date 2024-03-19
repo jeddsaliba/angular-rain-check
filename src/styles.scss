@@ -3,7 +3,6 @@
 
 @import "./assets/scss/colors";
 @import "./assets/scss/theme";
-@import "./assets/scss/datatables";
 @import "./assets/scss/mixin";
 
 @include loop(8, 50, 1, ".fs-", "", "font-size", "px", "!important");

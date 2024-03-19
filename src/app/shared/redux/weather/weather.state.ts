@@ -46,7 +46,6 @@ export const WeatherForecastTableHeads: any = [
 ];
 
 const ForecastInitialState: ForecastModel = {
-    name: '',
     date: '',
     temperature: 0,
     description: '',

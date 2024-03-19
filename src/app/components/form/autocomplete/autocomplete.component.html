@@ -3,7 +3,7 @@
     <mat-form-field class="col-12">
       <mat-label>{{ fieldName }}</mat-label>
       <input matInput [placeholder]="placeholder" [formControlName]="controlName" [required]="required"
-        (keyup)="onKeyUp($event)" [matAutocomplete]="autocomplete" />
+        (keyup)="onKeyUp()" [matAutocomplete]="autocomplete" />
       <mat-autocomplete autoActiveFirstOption #autocomplete="matAutocomplete"
         (optionSelected)="onOptionSelected($event)">
         <mat-option *ngFor="let option of (options$ | async)" [value]="option">

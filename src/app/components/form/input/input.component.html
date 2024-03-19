@@ -6,7 +6,7 @@
                 [type]="type"
                 [placeholder]="placeholder"
                 [formControlName]="controlName"
-                (keyup)="onKeyUp($event)"
+                (keyup)="onKeyUp()"
             >
             <mat-icon matPrefix *ngIf="isSearch">search</mat-icon>
             <mat-hint *ngIf="hint">{{ hint }}</mat-hint>

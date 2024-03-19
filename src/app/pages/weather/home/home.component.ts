@@ -37,7 +37,7 @@ export class HomeComponent implements OnInit {
   }
   initForm(): void {
     this.searchForm = this.formBuilder.group({
-      city: [
+      location: [
         '',
         Validators.compose([
           Validators.required
@@ -61,11 +61,11 @@ export class HomeComponent implements OnInit {
     const {
       lon,
       lat,
-      city
+      location
     } = this.searchForm.getRawValue();
     this.router.navigate([`${Url.weather}/${Url.forecast}`], {
       queryParams: {
-          q: city,
+          q: location,
           lon,
           lat
       }

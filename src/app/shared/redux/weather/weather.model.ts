@@ -1,6 +1,5 @@
 export interface ForecastModel {
-    name: string,
-    date: any,
+    date: unknown,
     temperature: number,
     description: string,
     main: string,

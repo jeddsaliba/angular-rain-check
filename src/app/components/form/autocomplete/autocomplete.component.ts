@@ -20,8 +20,8 @@ export class AutocompleteComponent {
   @Input() options$: Observable<SelectOptionModel[]> = of([]);
   @Output() eventOnKeyUp: EventEmitter<any> = new EventEmitter();
   @Output() eventOnOptionSelected: EventEmitter<any> = new EventEmitter();
-  onKeyUp(e: any): void {
-    this.eventOnKeyUp.emit(e.target.value);
+  onKeyUp(): void {
+    this.eventOnKeyUp.emit();
   }
   onOptionSelected(e: MatAutocompleteSelectedEvent): void {
     this.eventOnOptionSelected.emit(e.option.value.value);
