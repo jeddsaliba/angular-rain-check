@@ -5,13 +5,18 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 The purpose of this project is to showcase an Angular Project with a weather forecast capability.
 
 ## Table of Contents
+[Preview](#preview)<br/>
 [Dependencies](#dependencies)<br/>
 [Plugin(s) Used](#plugins-used)<br/>
 [Installation](#installation)<br/>
 [Development Server](#development-server)<br/>
 [Support](#support)
 
-<a name="installation"></a>
+<a name="preview"></a>
+## Preview
+Here is a sneak peak of the web application: https://angular-rain-check.vercel.app
+
+<a name="dependencies"></a>
 ## Dependencies
 - [NodeJS](https://nodejs.org)
 - [Angular CLI](https://angular.io)
