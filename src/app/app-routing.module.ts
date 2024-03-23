@@ -13,6 +13,11 @@ const routes: Routes = [
     ],
     children: [
       {
+        path: '',
+        redirectTo: 'weather',
+        pathMatch: 'full'
+      },
+      {
         path: 'weather',
         loadChildren: () => import('./pages/weather/weather.module').then((m) => m.WeatherModule)
       }
