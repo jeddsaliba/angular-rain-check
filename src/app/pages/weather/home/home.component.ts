@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Url } from '@enum/url';
@@ -17,6 +17,7 @@ import { Observable, of } from 'rxjs';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HomeComponent implements OnInit {
   searchForm: FormGroup | any;

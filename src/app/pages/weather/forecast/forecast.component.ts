@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { setDataTable } from '@shared/redux/datatable/datatable.action';
@@ -13,7 +13,8 @@ import { showLoader } from '@shared/redux/shared/shared.action';
 @Component({
   selector: 'app-forecast',
   templateUrl: './forecast.component.html',
-  styleUrls: ['./forecast.component.scss']
+  styleUrls: ['./forecast.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ForecastComponent implements OnInit, OnDestroy {
   selectWeatherForecast$: any;

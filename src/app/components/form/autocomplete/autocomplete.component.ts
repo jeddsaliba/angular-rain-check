@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 import { AbstractControl, FormControlName, FormGroup } from '@angular/forms';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { SelectOptionModel } from '@shared/redux/shared/shared.model';
@@ -7,7 +7,8 @@ import { Observable, of } from 'rxjs';
 @Component({
   selector: 'app-autocomplete',
   templateUrl: './autocomplete.component.html',
-  styleUrls: ['./autocomplete.component.scss']
+  styleUrls: ['./autocomplete.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AutocompleteComponent {
   @Input() formGroup: FormGroup | AbstractControl | any;

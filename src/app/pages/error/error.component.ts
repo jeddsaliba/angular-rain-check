@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Url } from '@enum/url';
 import { AuthService } from '@shared/services/auth/auth.service';
@@ -7,7 +7,8 @@ import { Observable, of } from 'rxjs';
 @Component({
   selector: 'app-error',
   templateUrl: './error.component.html',
-  styleUrls: ['./error.component.scss']
+  styleUrls: ['./error.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ErrorComponent implements OnInit {
   authenticated$: Observable<boolean> = of(false);
