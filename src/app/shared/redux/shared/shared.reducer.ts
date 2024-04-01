@@ -1,6 +1,6 @@
 import { createReducer, on } from "@ngrx/store";
 import { SharedState } from "./shared.state";
-import { setSelectOptionsCancel, setSelectOptionsSuccess, showLoaderCancel, showLoaderSuccess, showSnackbarCancel, showSnackbarSuccess } from "./shared.action";
+import { setSelectOptionsCancel, setSelectOptionsSuccess, showAutocompleteLoaderCancel, showAutocompleteLoaderSuccess, showLoaderCancel, showLoaderSuccess, showSnackbarCancel, showSnackbarSuccess } from "./shared.action";
 
 const _sharedReducer = createReducer(
     SharedState,
@@ -38,6 +38,18 @@ const _sharedReducer = createReducer(
         return {
             ...state,
             snackbar_message: SharedState.snackbar_message
+        }
+    }),
+    on(showAutocompleteLoaderSuccess, (state, {payload}) => {
+        return {
+            ...state,
+            show_autocomplete_loader: payload
+        }
+    }),
+    on(showAutocompleteLoaderCancel, (state) => {
+        return {
+            ...state,
+            show_autocomplete_loader: SharedState.show_autocomplete_loader
         }
     }),
 )

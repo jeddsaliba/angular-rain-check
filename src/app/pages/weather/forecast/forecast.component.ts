@@ -8,7 +8,6 @@ import { selectWeatherForecast } from '@shared/redux/weather/weather.selector';
 import { WeatherForecastTableHeads } from '@shared/redux/weather/weather.state';
 import { BreadcrumbService } from 'xng-breadcrumb';
 import { Location } from '@angular/common';
-import { showLoader } from '@shared/redux/shared/shared.action';
 
 @Component({
   selector: 'app-forecast',
@@ -26,7 +25,6 @@ export class ForecastComponent implements OnInit, OnDestroy {
     private location: Location
   ) {}
   ngOnInit(): void {
-    this.store.dispatch(showLoader(true));
     this.getParameters();
     this.getWeatherDetails();
   }

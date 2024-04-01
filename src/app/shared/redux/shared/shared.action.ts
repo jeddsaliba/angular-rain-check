@@ -12,3 +12,7 @@ export const showLoaderCancel = createAction(SharedType.SHOW_LOADER_CANCEL);
 export const showSnackbar = createAction(SharedType.SHOW_SNACKBAR, (payload: any) => ({payload}));
 export const showSnackbarSuccess = createAction(SharedType.SHOW_SNACKBAR_SUCCESS, (payload: any) => ({payload}));
 export const showSnackbarCancel = createAction(SharedType.SHOW_SNACKBAR_CANCEL);
+
+export const showAutocompleteLoader = createAction(SharedType.SHOW_AUTOCOMPLETE_LOADER, (payload: any) => ({payload}));
+export const showAutocompleteLoaderSuccess = createAction(SharedType.SHOW_AUTOCOMPLETE_LOADER_SUCCESS, (payload: any) => ({payload}));
+export const showAutocompleteLoaderCancel = createAction(SharedType.SHOW_AUTOCOMPLETE_LOADER_CANCEL);

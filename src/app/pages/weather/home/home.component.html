@@ -19,7 +19,7 @@
                         <div class="col-md-12">
                             <app-autocomplete [formGroup]="searchForm" controlName="location"
                                 fieldName="Location" placeholder="Please enter a location" [required]="true"
-                                [isSearch]="true" (eventOnKeyUp)="onKeyUp()" (eventOnOptionSelected)="onOptionSelected($event)" [options$]="options$"></app-autocomplete>
+                                [isSearch]="true" (eventOnKeyUp)="onKeyUp()" (eventOnOptionSelected)="onOptionSelected($event)" [options$]="options$" [loading$]="loading$"></app-autocomplete>
                         </div>
                     </div>
                     <div class="row">

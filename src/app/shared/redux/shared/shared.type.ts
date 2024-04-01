@@ -10,4 +10,8 @@ export enum SharedType {
     SHOW_SNACKBAR = '[SHARED] Show Snackbar',
     SHOW_SNACKBAR_SUCCESS = '[SHARED] Show Snackbar Success',
     SHOW_SNACKBAR_CANCEL = '[SHARED] Show Snackbar Cancel',
+
+    SHOW_AUTOCOMPLETE_LOADER = '[SHARED] Show Autocomplete Loader',
+    SHOW_AUTOCOMPLETE_LOADER_SUCCESS = '[SHARED] Show Autocomplete Loader Success',
+    SHOW_AUTOCOMPLETE_LOADER_CANCEL = '[SHARED] Show Autocomplete Loader Cancel',
 }

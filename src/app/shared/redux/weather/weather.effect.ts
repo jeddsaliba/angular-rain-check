@@ -6,7 +6,7 @@ import { WeatherType } from './weather.type';
 import { WeatherService } from '@shared/services/weather/weather.service';
 import { environment } from '@environments/environment';
 import { Store } from '@ngrx/store';
-import { showLoaderCancel, showSnackbar } from '../shared/shared.action';
+import { showLoader, showLoaderCancel, showSnackbar } from '../shared/shared.action';
 
 @Injectable()
 export class WeatherEffect {
@@ -18,6 +18,9 @@ export class WeatherEffect {
   _getWeatherForecastByGeolocation = createEffect(() => {
     return this.actions$.pipe(
       ofType(WeatherType.FORECAST),
+      tap(() => {
+        this.store.dispatch(showLoader(true));
+      }),
       switchMap(({ payload }) => {
         const { lon, lat } = payload;
         const params = {

@@ -6,6 +6,11 @@
         (keyup)="onKeyUp()" [matAutocomplete]="autocomplete" />
       <mat-autocomplete autoActiveFirstOption #autocomplete="matAutocomplete"
         (optionSelected)="onOptionSelected($event)">
+        <ng-container *ngIf="loading$ | async">
+          <mat-option disabled="true">
+            <i>Searching...</i>
+          </mat-option>
+        </ng-container>
         <mat-option *ngFor="let option of (options$ | async)" [value]="option">
           {{ option.label }}
         </mat-option>

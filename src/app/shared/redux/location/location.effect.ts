@@ -6,7 +6,7 @@ import { environment } from '@environments/environment';
 import { LocationService } from '@shared/services/location/location.service';
 import { LocationType } from './location.type';
 import { getAutocompleteSuccess, setLocationSuccess } from './location.action';
-import { setSelectOptions, showSnackbar } from '../shared/shared.action';
+import { setSelectOptions, showAutocompleteLoader, showAutocompleteLoaderCancel, showSnackbar } from '../shared/shared.action';
 import { LocationModel } from './location.model';
 
 @Injectable()
@@ -19,6 +19,14 @@ export class LocationEffect {
   _getAutocomplete = createEffect(() => {
     return this.actions$.pipe(
       ofType(LocationType.AUTOCOMPLETE),
+      tap(({ payload }) => {
+        const { location } = payload;
+        if (!location) {
+          this.store.dispatch(showAutocompleteLoaderCancel());
+        } else {
+          this.store.dispatch(showAutocompleteLoader(true));
+        }
+      }),
       filter(({ payload }) => {
         const { location } = payload;
         return location;
@@ -42,6 +50,9 @@ export class LocationEffect {
             });
             this.store.dispatch(setSelectOptions(select_options));
             return getAutocompleteSuccess(results);
+          }),
+          tap(() => {
+            this.store.dispatch(showAutocompleteLoaderCancel());
           }),
           takeUntil(this.actions$.pipe(ofType(LocationType.AUTOCOMPLETE_CANCEL))),
           catchError(({ error }) => of(showSnackbar(error?.message)))

@@ -19,6 +19,7 @@ export class AutocompleteComponent {
   @Input() hint: string | any;
   @Input() isSearch = false;
   @Input() options$: Observable<SelectOptionModel[]> = of([]);
+  @Input() loading$: Observable<boolean> = of(false);
   @Output() eventOnKeyUp: EventEmitter<any> = new EventEmitter();
   @Output() eventOnOptionSelected: EventEmitter<any> = new EventEmitter();
   onKeyUp(): void {

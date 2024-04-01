@@ -11,7 +11,7 @@ import { Location, LocationModel } from '@shared/redux/location/location.model';
 import { selectLocation } from '@shared/redux/location/location.selector';
 import { setSelectOptionsCancel } from '@shared/redux/shared/shared.action';
 import { SelectOptionModel } from '@shared/redux/shared/shared.model';
-import { selectSelectOptions } from '@shared/redux/shared/shared.selector';
+import { selectSelectOptions, selectShowAutocompleteLoader } from '@shared/redux/shared/shared.selector';
 import { Observable, of } from 'rxjs';
 
 @Component({
@@ -24,6 +24,7 @@ export class HomeComponent implements OnInit {
   user$: Observable<AuthUserModel> = of();
   geocoderAutocomplete!: GeocoderAutocomplete;
   options$: Observable<SelectOptionModel[]> = of([]);
+  loading$: Observable<boolean> = of(false);
   constructor(
     protected formBuilder: FormBuilder,
     private store: Store<Location>,
@@ -77,6 +78,7 @@ export class HomeComponent implements OnInit {
     this.store.dispatch(setSelectOptionsCancel());
     this.store.dispatch(getAutocomplete(this.searchForm.value));
     this.options$ = this.store.select(selectSelectOptions);
+    this.loading$ = this.store.select(selectShowAutocompleteLoader);
   }
   onOptionSelected(value: any): void {
     this.store.dispatch(setLocation(value));

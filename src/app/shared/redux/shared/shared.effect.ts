@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { map } from 'rxjs';
 import { SharedType } from './shared.type';
-import { setSelectOptionsSuccess, showLoaderSuccess, showSnackbarSuccess } from './shared.action';
+import { setSelectOptionsSuccess, showAutocompleteLoaderSuccess, showLoaderSuccess, showSnackbarSuccess } from './shared.action';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Injectable()
@@ -33,6 +33,14 @@ export class SharedEffect {
       map(({ payload }) => {
         this._snackBar.open(payload, 'OK', { duration: 3000 });
         return showSnackbarSuccess(payload);
+      })
+    );
+  });
+  _showAutocompleteLoader = createEffect(() => {
+    return this.actions$.pipe(
+      ofType(SharedType.SHOW_AUTOCOMPLETE_LOADER),
+      map(({payload}) => {
+        return showAutocompleteLoaderSuccess(payload);
       })
     );
   });
